@@ -85,7 +85,7 @@ goto info
 :update 
 cls
 echo In the Browser Window, Download a Release!
-start https://github.com/Noahscratch493/CommandOS/releases/
+start https://github.com/Noahscratch493/CommandOSPro/blob/main/CommandOSProMax.bat
 
 pause
 goto menu
