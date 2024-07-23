@@ -228,6 +228,8 @@ goto notes
 cls
 if exist notes.txt (
     type notes.txt
+echo.  
+echo Edit "notes.txt" to Edit Notes
 ) else (
     echo No notes available.
 )
