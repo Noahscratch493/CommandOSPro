@@ -1,6 +1,6 @@
 @echo off
 color 0a
-title CommandOS Pro Max ver=1.0
+title CommandOS Pro Max ver=1.1
 
 echo Finding Kernel.........
 echo Kernel Found! Booting CommandOS Pro Max
@@ -52,7 +52,7 @@ echo      CommandOS Pro Max
 echo.=======================
 echo      SYSTEM INFO  
 echo.
-echo      VERSION = 1.0
+echo      VERSION = 1.1
 echo.     
 echo      RAM = 16GB
 echo.
@@ -171,8 +171,15 @@ goto menu
 cls
 echo SONGS
 echo.
-echo Sorry, this feature is not available in CommandOS Pro Max.
-echo.
+echo Please enter the file path of the mp3 file:
+set /p filepath=
+set filepath=%filepath:"=%
+if exist "%filepath%" (
+    start wmplayer "%filepath%"
+    echo Playing %filepath% in Windows Media Player.
+) else (
+    echo File not found: %filepath%
+)
 pause
 goto menu
 
@@ -248,8 +255,22 @@ goto notes
 cls
 echo WEATHER
 echo.
-echo Sorry, this feature is not available in CommandOS Pro Max.
-echo.
+echo Do you want to check the current weather online?
+
+echo  1. Check weather
+echo  2. Menu
+
+set /p weatherinput=
+
+if "%weatherinput%" == "1" goto checkweather
+if "%weatherinput%" == "2" goto menu
+
+goto weather
+
+:checkweather
+cls
+echo Opening the browser to check the weather...
+start https://google.com/search?q=weather
 pause
 goto menu
 
